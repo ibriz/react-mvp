@@ -4,7 +4,8 @@
   "description": "MVP react web3",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "build-production": "ENV=production webpack --devtool=source-map -w"
   },
   "repository": {
     "type": "git",
