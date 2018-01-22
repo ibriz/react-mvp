@@ -26,3 +26,17 @@ export function pause_contract() {
     })
   })
 }
+
+export function unpause_contract() {
+  return new Promise((resolve, reject) => {
+    getAcmeDeployedInstance().unpause()
+    .then((result) => {
+      console.log('unpause function result -->', result);
+      resolve (check_contract_pause_status());
+    })
+    .catch((err) => {
+      console.error('unpause function -->', err);
+      reject ({error: true});
+    })
+  })
+}
