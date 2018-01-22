@@ -15,15 +15,16 @@ export function check_contract_pause_status() {
 
 export function pause_contract() {
   return new Promise((resolve, reject) => {
-    // web3.eth.getAccounts(function(error, accounts) {
-    //   if (error) {
-    //     console.error('get address', error);
-    //     reject({error: true});
-    //   } else {
-    //     if (accounts.length > 0) {
-    //       console.log('accounts', accounts[0])
-    //       console.log('pause call')
-          getAcmeDeployedInstance().pause()
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+        console.error('get address', error);
+        reject({error: true});
+      } else {
+        if (accounts.length > 0) {
+          console.log('accounts', accounts[0])
+          console.log('pause call')
+
+          getAcmeDeployedInstance().pause({}, {from: accounts[0]})
           .then((result) => {
             console.log('pause function result -->', result);
             resolve (result);
@@ -32,12 +33,13 @@ export function pause_contract() {
             console.error('pause function -->', err);
             reject ({error: true});
           })
-      //   } else {
-      //     console.error('No accounts', accounts);
-      //     reject({error: true})
-      //   }
-      // }
-    //})
+
+        } else {
+          console.error('No accounts', accounts);
+          reject({error: true})
+        }
+      }
+    })
 
   })
 }
