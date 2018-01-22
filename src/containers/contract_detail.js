@@ -14,7 +14,7 @@ class ContractDetail extends Component {
     return (
       <div className="input-group">
         <div classame="alert alert-light" role="alert">
-          <span>Note: If contract status does not change after a task. Manually click 'Get Contract Status' button. Task may take more then 5 sec in local RPC</span>
+          <span>Note: Contract status may not change after a task. Manually click 'Get Contract Status' button. Task may take more then 5 sec</span>
         </div>
         <br />
         <div className="alert alert-info" role="alert">
