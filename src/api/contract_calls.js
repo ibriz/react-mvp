@@ -6,8 +6,7 @@ export function check_contract_pause_status() {
     .then((instance) => {
       instance.paused()
       .then((result) => {
-        console.log('paused check', result);
-        resolve ({active: result});
+        resolve ({paused: result});
       })
       .catch((err) => {
         console.error('pause function', err);

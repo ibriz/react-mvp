@@ -8,10 +8,10 @@ export default function(state=null, action) {
       if (action.payload.error) {
         return {status: 'UNKNOWN'};
       } else {
-        if (action.payload.active) {
-          return {status: 'UNPAUSED'}
-        } else {
+        if (action.payload.paused) {
           return {status: 'PAUSED'}
+        } else {
+          return {status: 'ACTIVE'}
         }
       }
   }
