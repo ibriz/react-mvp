@@ -22,13 +22,9 @@ class PauseContract extends Component {
 
   render() {
     return (
-      <div className="input-group">
-        <span className="input-group-btn">
-          <button onClick={this.onGetStatusClick} className="btn btn-secondary">Get Contract Status</button>
-        </span>
-        <span className="input-group-btn">
-          <button onClick={this.onPauseClick} className="btn btn-secondary">Pause Contract</button>
-        </span>
+      <div className="btn-toolbar">
+          <button onClick={this.onGetStatusClick} className="btn btn-info">Get Contract Status</button>
+          <button onClick={this.onPauseClick} className="btn btn-warning">Pause Contract</button>
       </div>
     )
   }
