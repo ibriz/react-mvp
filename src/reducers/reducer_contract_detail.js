@@ -1,5 +1,6 @@
 import {
-  CONTRACT_STATUS
+  CONTRACT_STATUS,
+  PAUSE_CONTRACT
 } from '../actions/index';
 
 export default function(state=null, action) {
@@ -8,12 +9,17 @@ export default function(state=null, action) {
       if (action.payload.error) {
         return {status: 'UNKNOWN'};
       } else {
-        if (action.payload.paused) {
+        if (action.payload.paused === true) {
           return {status: 'PAUSED'}
-        } else {
+        } else if (action.payload.paused === false){
           return {status: 'ACTIVE'}
+        } else {
+          return {status: 'UNKNOWN'};
         }
       }
+    case PAUSE_CONTRACT:
+      console.log('error', action.payload);
+      return {};
   }
   return state;
 }

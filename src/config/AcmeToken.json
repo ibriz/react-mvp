@@ -1,4 +1,4 @@
-module.exports = {
+{
   "contractName": "AcmeToken",
   "abi": [
     {
@@ -841,9 +841,9 @@ module.exports = {
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x82d50ad3c1091866e258fd0f1a7cc9674609d254"
+      "address": "0x38cf23c52bb4b13f051aec09580a2de845a7fa35"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-21T23:15:28.027Z"
+  "updatedAt": "2018-01-22T08:51:06.873Z"
 }

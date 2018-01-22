@@ -6,6 +6,7 @@ import {getContractStatus} from '../actions/index'
 class ContractDetail extends Component {
   constructor(props){
     super(props);
+
     this.props.getContractStatus();
   }
 
