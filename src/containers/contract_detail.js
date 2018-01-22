@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getContractStatus} from '../actions/index'
 
 class ContractDetail extends Component {
+  constructor(props){
+    super(props);
+    this.props.getContractStatus();
+  }
+
   render() {
     return (
       <div className="input-group">
@@ -17,4 +24,9 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(ContractDetail);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({getContractStatus}, dispatch);
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContractDetail);
