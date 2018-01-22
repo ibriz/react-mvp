@@ -13,7 +13,13 @@ class ContractDetail extends Component {
   render() {
     return (
       <div className="input-group">
-        <span>Contract Status: <b>{this.props.contract ? this.props.contract.status : 'DEFAULT UNKNOWN'}</b></span>
+        <div classame="alert alert-light" role="alert">
+          <span>Note: If contract status does not change after a task. Manually click 'Get Contract Status' button. Task may take more then 5 sec in local RPC</span>
+        </div>
+        <br />
+        <div className="alert alert-info" role="alert">
+          <span>Contract Status: <b>{this.props.contract ? this.props.contract.status : 'DEFAULT UNKNOWN'}</b></span>
+        </div>
       </div>
     );
   }

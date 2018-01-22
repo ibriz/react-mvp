@@ -3,7 +3,6 @@ const AcmeTokenArtifact = require('../config/AcmeToken.json');
 
 let acme_contract;
 let web3Provider;
-let acme_contract_deployed_instance;
 
 export function initialize() {
   if (typeof web3 !== 'undefined') {
@@ -15,18 +14,8 @@ export function initialize() {
   }
 
   web3 = new Web3(web3Provider);
-
   acme_contract = TruffleContract(AcmeTokenArtifact);
   acme_contract.setProvider(web3Provider);
-
-  acme_contract.deployed()
-  .then((instance) => {
-    acme_contract_deployed_instance = instance;
-  })
-  .catch((err) => {
-    console.error('error initializing contract instance', err);
-  })
-
 }
 
 export function getAcmeContract() {
@@ -35,12 +24,4 @@ export function getAcmeContract() {
   }
 
   return acme_contract;
-}
-
-export function getAcmeDeployedInstance() {
-  if (!acme_contract || !acme_contract_deployed_instance) {
-    initialize();
-  }
-
-  return acme_contract_deployed_instance;
 }

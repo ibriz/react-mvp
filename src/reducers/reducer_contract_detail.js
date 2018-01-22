@@ -17,9 +17,6 @@ export default function(state=null, action) {
           return {status: 'UNKNOWN'};
         }
       }
-    case PAUSE_CONTRACT:
-      console.log('error', action.payload);
-      return {};
   }
   return state;
 }
