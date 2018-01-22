@@ -19,7 +19,7 @@ export function pauseContract() {
   const request = pause_contract();
 
   return {
-    type: PAUSE_CONTRACT,
+    type: CONTRACT_STATUS,
     payload: request
   };
 }

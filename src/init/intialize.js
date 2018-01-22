@@ -1,5 +1,5 @@
 import config from '../config/config';
-const AcmeTokenJson = require('../config/AcmeToken.json');
+const AcmeTokenArtifact = require('../config/AcmeToken.json');
 
 let acme_contract;
 let web3Provider;
@@ -16,7 +16,7 @@ export function initialize() {
 
   web3 = new Web3(web3Provider);
 
-  acme_contract = TruffleContract(AcmeTokenJson);
+  acme_contract = TruffleContract(AcmeTokenArtifact);
   acme_contract.setProvider(web3Provider);
 
   acme_contract.deployed()
