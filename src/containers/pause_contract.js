@@ -2,17 +2,21 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {pauseContract} from '../actions/index'
+import {getContractStatus, pauseContract} from '../actions/index'
 
 class PauseContract extends Component {
   constructor(props){
     super(props);
 
-    this.onButtonClick = this.onButtonClick.bind(this);
+    this.onGetStatusClick = this.onGetStatusClick.bind(this);
+    this.onPauseClick = this.onPauseClick.bind(this);
   }
 
-  onButtonClick(event) {
-    console.log('Pause button clicked');
+  onGetStatusClick(event) {
+    this.props.getContractStatus();
+  }
+
+  onPauseClick(event) {
     this.props.pauseContract();
   }
 
@@ -20,7 +24,10 @@ class PauseContract extends Component {
     return (
       <div className="input-group">
         <span className="input-group-btn">
-          <button onClick={this.onButtonClick} className="btn btn-secondary">Pause Contract</button>
+          <button onClick={this.onGetStatusClick} className="btn btn-secondary">Get Contract Status</button>
+        </span>
+        <span className="input-group-btn">
+          <button onClick={this.onPauseClick} className="btn btn-secondary">Pause Contract</button>
         </span>
       </div>
     )
@@ -28,7 +35,7 @@ class PauseContract extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({pauseContract}, dispatch);
+  return bindActionCreators({getContractStatus, pauseContract}, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(PauseContract);

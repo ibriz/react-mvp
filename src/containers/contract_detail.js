@@ -5,7 +5,7 @@ class ContractDetail extends Component {
   render() {
     return (
       <div className="input-group">
-        <span>Contract Status: <b>{this.props.contract ? this.props.contract.status : 'UNKNOWN'}</b></span>
+        <span>Contract Status: <b>{this.props.contract ? this.props.contract.status : 'DEFAULT UNKNOWN'}</b></span>
       </div>
     );
   }

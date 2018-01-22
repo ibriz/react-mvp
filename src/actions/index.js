@@ -1,15 +1,23 @@
-export const PAUSE_CONTRACT = 'PAUSE_CONTRACT';
+import {
+  check_contract_pause_status
+} from '../api/contract_calls';
 
-function requestContractPause() {
-  console.log("requesting function pause")
-  return {success: true};
-}
+export const CONTRACT_STATUS = 'CONTRACT_STATUS';
 
 export function pauseContract() {
-  const payload = requestContractPause();
+  const request = check_contract_pause_status();
 
   return {
-    type: PAUSE_CONTRACT,
-    payload
-  }
+    type: CONTRACT_STATUS,
+    payload: request
+  };
+}
+
+export function getContractStatus() {
+  const request = check_contract_pause_status();
+
+  return {
+    type: CONTRACT_STATUS,
+    payload: request
+  };
 }
